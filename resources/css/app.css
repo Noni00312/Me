@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './fonts.css';
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -6,7 +7,79 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    --font-poppins: 'Poppins', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 
+    /* Core Accents */
+    --color-pri-accent: #7B6CD9;
+    --color-sec-accent: #6CD9C2;
+    
+    /* Surface / Backgrounds */
+    --color-surf-bg: #0F0C28;
+    --color-surf-30: #2A2740;
+    --color-surf-10: #3A3655;
+
+    /* Status Indicators (Shortened) */
+    --color-warn-light: #FFF0E0;
+    --color-warn: #FFB84D;
+    --color-warn-dark: #8B621F;
+
+    --color-error-light: #FFE5E5;
+    --color-error: #FF5A5A;
+    --color-error-dark: #8B2E2E;
+
+    --color-info-light: #E5F0FF;
+    --color-info: #4A9EFF;
+    --color-info-dark: #1E4A7A;
+
+    --color-success-light: #E8F5E9;
+    --color-success: #4CAF50;
+    --color-success-dark: #1E4A22;
+
+    /* Secondary Scale (Mapped to 100-900) */
+    --color-sec-100: #F0FCF9;
+    --color-sec-200: #D9F5ED;
+    --color-sec-300: #B8EDE0;
+    --color-sec-400: #97E4D3;
+    --color-sec-500: #6CD9C2; /* Base sec */
+    --color-sec-600: #4FBFA8;
+    --color-sec-700: #3DA68F;
+    --color-sec-800: #2C8C78;
+    --color-sec-900: #1B735F;
+
+    --font-size-xs: 0.64rem;    /* 10px - Microscopic */
+    --font-size-sm: 0.8rem;     /* 13px - Small/Labels */
+    --font-size-base: 1rem;     /* 16px - Body */
+    --font-size-md: 1.25rem;    /* 20px - Leading text */
+    --font-size-lg: 1.563rem;   /* 25px - Section headers */
+    --font-size-xl: 1.953rem;   /* 31px - Sub-page headers */
+    --font-size-2xl: 2.441rem;  /* 39px - Page headers */
+    --font-size-3xl: 3.052rem;  /* 49px - Main titles */
+    --font-size-4xl: 3.815rem;  /* 61px - Hero banners */
+    --font-size-5xl: 4.768rem;  /* 76px - Dramatic headers */
+}
+
+@layer base {
+    body {
+        @apply bg-surf-bg text-white font-poppins text-base;
+    }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 5px;
+  background: var(--color-surf-10);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sec-accent);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sec-400);
 }
