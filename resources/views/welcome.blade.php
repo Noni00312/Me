@@ -25,32 +25,32 @@
                 <ul>
                     <li class="w-full mb-2">
                         <a href="#" class="group flex items-center w-full gap-2 p-2 rounded-md hover:bg-sec-accent transition-colors duration-150 ease-in-out">
-                            @svg('heroicon-o-clock', 'w-[24px] h-[24px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
+                            @svg('heroicon-o-clock', 'w-[20px] h-[20px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
                             <span class="group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out">{{ __('Recent') }}</span>
                         </a>
                     </li>
                     <li class="w-full mb-2">
                         <a href="{{ route('projects.index') }}" class="group flex items-center w-full gap-2 p-2 rounded-md hover:bg-sec-accent transition-colors duration-150 ease-in-out">
-                            @svg('heroicon-o-wrench-screwdriver', 'w-[24px] h-[24px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
+                            @svg('heroicon-o-wrench-screwdriver', 'w-[20px] h-[20px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
                             <span class="group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out">{{ __('Project Management') }}</span>
                         </a>
                     </li>
                     <li class="w-full mb-2">
                         <a href="#" class="group flex items-center w-full gap-2 p-2 rounded-md hover:bg-sec-accent transition-colors duration-150 ease-in-out">
-                            @svg('heroicon-o-trophy', 'w-[24px] h-[24px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
+                            @svg('heroicon-o-trophy', 'w-[20px] h-[20px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
                             <span class="group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out">{{ __('Goal Tracker') }}</span>
                         </a>
                     </li>
                     <li class="w-full">
                         <a href="#" class="group flex items-center w-full gap-2 p-2 rounded-md hover:bg-sec-accent transition-colors duration-150 ease-in-out">
-                            @svg('heroicon-o-sparkles', 'w-[24px] h-[24px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
+                            @svg('heroicon-o-sparkles', 'w-[20px] h-[20px] text-white group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out')
                             <span class="group-hover:text-surf-bg group-hover:transition-colors duration-150 ease-in-out">{{ __('Learning Tracker') }}</span>
                         </a>
                     </li>
                 </ul>
             </nav>
         </div>
-        <div class="w-full h-full p-2">
+        <main class="w-full h-full p-2">
             <div class="w-full pb-3">
                 <h2 class="text-base font-regular text-gray-400">
                     @if (isset($page_title))
@@ -62,7 +62,7 @@
             <div class="w-full h-[calc(100%-32px)]">
                 @yield('content')
             </div>
-        </div>
+        </main>
     </div>
     @stack('script')
 </body>

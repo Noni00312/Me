@@ -9,5 +9,5 @@ Route::get('/', function () {
 
 Route::controller(ProjectManagementController::class)->prefix('/projects')->group(function () {
   Route::get('/', 'index')->name('projects.index');
-  
+
 });

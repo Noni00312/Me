@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Project;
 
 class ProjectManagementController extends Controller
 {
@@ -12,8 +13,10 @@ class ProjectManagementController extends Controller
    */
   public function index()
   {
+
     return view('project-management.project-list', [
-      'projects_count' => $this->projects_count
+      'projects_count' => $this->projects_count,
+      'projects' => Project::all(),
     ]);
   }
 
