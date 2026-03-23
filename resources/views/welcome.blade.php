@@ -59,7 +59,7 @@
                 </h2>
             </div>
 
-            <div class="w-full h-[calc(100%-32px)]">
+            <div class="w-full h-[calc(100%-32px)] relative">
                 @yield('content')
             </div>
         </main>
