@@ -1,11 +1,53 @@
 @extends('welcome', ['title' => 'Project Management', 'page_title' => 'Project Management'])
 
 @section('content')
+    {{-- Filter Modal --}}
+    <div class="filter-modal  p-4 bg-surf-30 rounded-md border border-white w-[30rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  shadow-lg shadow-pri-accent/20 transition-all east-in-out  duration-150 invisible scale-80 opacity-0">
+      <div class="flex justify-between items-center">
+        <div class="flex justify-between items-center gap-2">
+          @svg('heroicon-o-funnel', 'w-[24px] h-[24px] text-sec-accent')
+          <span class="text-sm font-semibold text-white">Filter Project</span>
+        </div>
+        <button class="close-filter-modal-button cursor-pointer">
+          @svg('heroicon-s-x-mark', 'w-[20px] h-[20px] text-gray-300')
+        </button>
+      </div>
+      <hr class="border-1 border-gray-700 rounded-xs my-3 w-full">
+      <div class="filter-container flex flex-wrap gap-2 ">
+        <label for="web-development" class="select-none text-xs filter-checkbox py-2 px-3 border-1 border-gray-400 rounded-md cursor-pointer has-[:checked]:bg-info has-[:checked]:text-white has-[:checked]:border-info">
+          <input class="hidden" type="checkbox" id="web-development" name="web-development">
+          Web Development
+        </label>
+        <label for="mobile-app" class="select-none text-xs filter-checkbox py-2 px-3 border-1 border-gray-400 rounded-md cursor-pointer has-[:checked]:bg-info has-[:checked]:text-white has-[:checked]:border-info">
+          <input class="hidden" type="checkbox" id="mobile-app" name="mobile-app">
+          Mobile App Development
+        </label>
+        <label for="desktop-app" class="select-none text-xs filter-checkbox py-2 px-3 border-1 border-gray-400 rounded-md cursor-pointer has-[:checked]:bg-info has-[:checked]:text-white has-[:checked]:border-info">
+          <input class="hidden" type="checkbox" id="desktop-app" name="desktop-app">
+          Desktop App Development
+        </label>
+        <label for="ui-ux-design" class="select-none text-xs filter-checkbox py-2 px-3 border-1 border-gray-400 rounded-md cursor-pointer has-[:checked]:bg-info has-[:checked]:text-white has-[:checked]:border-info">
+          <input class="hidden" type="checkbox" id="ui-ux-design" name="ui-ux-design">
+          UI/UX Design
+        </label>
+      </div>
+      <hr class="border-1 border-gray-700 rounded-xs my-3 w-full">
+      <div class="flex gap-2 justify-end">
+        <button class="filter-reset-button text-sm flex items-center gap-1 px-3 py-2 bg-transparent rounded-md border border-white hover:bg-gray-600 transition-colors duration-150 ease-in-out cursor-pointer">
+            @svg('heroicon-o-arrow-path', 'w-[18px] h-[18px] text-white')
+            <span class="text-white">{{ __('Reset') }}</span>
+        </button>
+        <button class="submit-filter-modal-button text-sm  flex items-center gap-1 px-3 py-2 bg-sec-accent rounded-md hover:bg-sec-600 transition-colors duration-150 ease-in-out cursor-pointer">
+            @svg('heroicon-o-check', 'w-[18px] h-[18px] text-surf-bg')
+            <span class="text-surf-bg">{{ __('Filter') }}</span>
+        </button>
+      </div>
+    </div>
     {{-- Create Task Modal --}}
-    <div class="create-modal rounded-md p-4 bg-surf-30 w-[30rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 shadow-lg shadow-pri-accent/20 transition-all east-in-out  duration-150 invisible scale-80 opacity-0">
+    <div class="create-modal p-4 bg-surf-30 rounded-md border border-white w-[30rem] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  shadow-lg shadow-pri-accent/20 transition-all east-in-out  duration-150 invisible scale-80 opacity-0">
       <div class="flex justify-between items-center">
         <div class="flex items-center gap-2">
-          @svg('heroicon-s-folder', 'w-[24px] h-[24px] text-sec-accent')
+          @svg('heroicon-o-folder', 'w-[24px] h-[24px] text-sec-accent')
           <span class="text-sm font-semibold text-white">Create new project</span>
         </div>
         <button class="close-modal-button cursor-pointer">
@@ -97,22 +139,21 @@
     <div class="py-2 flex items-center justify-between">
         <div class="flex items-center gap-1 border border-gray-300 px-3 py-2 rounded-md">
             @svg('heroicon-o-magnifying-glass', 'w-[20px] h-[20px] text-gray-400')
-            <input type="text" class="search-input w-full outline-none" placeholder="Search project">
+            <input type="search" class="search-input w-full outline-none" placeholder="Search project">
 
             <button class=" flex items-center gap-2 px-2 py-1 bg-transparent rounded-md border border-gray-300 hover:bg-gray-600 transition-colors duration-150 ease-in-out cursor-pointer clear-button  border-none hidden">
                 @svg('heroicon-o-x-mark', 'w-[18px] h-[18px] text-error ')
             </button>
         </div>
         <div class="flex gap-2">
-            <button class="flex items-center gap-2 px-3 py-2 bg-transparent rounded-md border border-white hover:bg-gray-600 transition-colors duration-150 ease-in-out cursor-pointer">
-                @svg('heroicon-o-funnel', 'w-[20px] h-[20px] text-white')
-                <span class="text-white">{{ __('Filter') }}</span>
-            </button>
-            {{-- add a dropdown or a modal for filter --}}
-            <button class="create-modal-button flex items-center gap-2 px-3 py-2 bg-sec-accent rounded-md hover:bg-sec-600 transition-colors duration-150 ease-in-out cursor-pointer">
-                @svg('heroicon-o-plus', 'w-[20px] h-[20px] text-surf-bg')
-                <span class="text-surf-bg">{{ __('Create Project') }}</span>
-            </button>
+          <button class="filter-modal-button flex items-center gap-2 px-3 py-2 bg-transparent rounded-md border border-white hover:bg-gray-600 transition-colors duration-150 ease-in-out cursor-pointer">
+              @svg('heroicon-o-funnel', 'w-[20px] h-[20px] text-white')
+              <span class="text-white">{{ __('Filter') }}</span>
+          </button>
+          <button class="create-modal-button flex items-center gap-2 px-3 py-2 bg-sec-accent rounded-md hover:bg-sec-600 transition-colors duration-150 ease-in-out cursor-pointer">
+              @svg('heroicon-o-plus', 'w-[20px] h-[20px] text-surf-bg')
+              <span class="text-surf-bg">{{ __('Create Project') }}</span>
+          </button>
         </div>
     </div>
 
@@ -143,6 +184,9 @@
         const createModal = document.querySelector('.create-modal');
         const createProjectButton = document.querySelector('.create-modal-button');
         const closeModalButton = document.querySelector('.close-modal-button');
+        const filterModal = document.querySelector('.filter-modal');
+        const filterButton = document.querySelector('.filter-modal-button');
+        const closeFilterButton = document.querySelector('.close-filter-modal-button');
 
         if (clearButton && searchInput) {
             searchInput.addEventListener('input', function() {
@@ -181,10 +225,39 @@
         })
 
         createProjectButton.addEventListener('click', openModal);
-
         closeModalButton.addEventListener('click', closeModal);
 
+        filterButton.addEventListener('click', openFilterModal);
+        closeFilterButton.addEventListener('click', closeFilterModal);
+
+        function openFilterModal() {
+          if(createModal.classList.contains('open')) {
+            closeModal();
+          }
+
+          if(!filterModal.classList.contains('open')) {
+            filterModal.classList.remove('invisible');
+            filterModal.classList.remove('close');
+            filterModal.classList.add('open');
+            filterModal.classList.remove('scale-80', 'opacity-0')
+            filterModal.classList.add('scale-100', 'opacity-100')
+          }
+        }
+
+        function closeFilterModal() {
+          if(filterModal.classList.contains('open')) {
+            filterModal.classList.add('invisible');
+            filterModal.classList.remove('open');
+            filterModal.classList.add('scale-80', 'opacity-0')
+            filterModal.classList.remove('scale-100', 'opacity-100')
+          }
+        }
+
         function openModal() {
+          if(filterModal.classList.contains('open')) {
+            closeFilterModal();
+          }
+
           if(!createModal.classList.contains('open')) {
             createModal.classList.remove('invisible');
             createModal.classList.remove('close');
@@ -202,6 +275,16 @@
             createModal.classList.remove('scale-100', 'opacity-100')
           }
         }
+
+        document.querySelector('.filter-reset-button').addEventListener('click', function() {
+          var checkboxes = document.querySelectorAll('.filter-container input[type="checkbox"]');
+
+          for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false;
+          }
+
+          this.blur();
+        });
       })
     </script>
 @endsection
