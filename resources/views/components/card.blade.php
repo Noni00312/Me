@@ -10,7 +10,7 @@
 
 <div class="p-4 rounded-lg bg-surf-30 border-1 border-transparent hover:border-1 hover:border-white transition-color duration-150 ease-in-out">
     <div class="flex justify-between items-center">
-        <span class="px-3 py-2 text-xs font-semibold bg-error-light text-error-dark rounded-sm mb-3 inline-block">{{ $project_type }}</span>
+        <span class="px-3 py-2 text-xs font-semibold border-1 border-gray-300  rounded-sm mb-3 inline-block">{{ $project_type }}</span>
         <span class="text-xs font-semibold mb-3
             @switch($status)
               @case('Not Started')

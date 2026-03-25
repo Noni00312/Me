@@ -127,7 +127,8 @@
             <p class="textarea-char-counter-con text-xs text-gray-400 text-end hidden"><span class="textarea-char-counter">0</span>/1000</p>
           </div>
         </div>
-        <button type="submit" class="w-full text-center px-3 py-2 bg-sec-accent rounded-md hover:bg-sec-600 transition-colors duration-150 ease-in-out cursor-pointer  mb-2">
+        <x-drop-down />
+        <button type="submit" class="w-full text-center px-3 py-2 bg-sec-accent rounded-md hover:bg-sec-600 transition-colors duration-150 ease-in-out cursor-pointer  my-2">
             <span class="text-surf-bg">{{ __('Create Project') }}</span>
         </button>
         <button type="button" class="w-full text-center px-3 py-2 bg-transparent rounded-md border border-white hover:bg-gray-600 transition-colors duration-150 ease-in-out cursor-pointer">
